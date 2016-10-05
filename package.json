@@ -1,5 +1,5 @@
 {
-  "name": "If Hemingway tested Javascript in Node",
+  "name": "If-Hemingway-tested-Javascript-in-Node",
   "version": "0.3.0",
   "description": "Implementation of Angus Croll's If Hemingway wrote Javascript popular author-based js implementations for solving problems... also, tests",
   "repository": "https://github.com/Painatalman/If-Hemingway-Tested-Javascript-in-Node",
@@ -7,12 +7,16 @@
   "scripts": {
     "test-factorials": "mocha --compilers coffee:coffee-script/register ./tests/factorial.spec.js",
     "test-primes": "mocha ./tests/prime.spec.js",
-    "test-say-it": "mocha --require babel-core/register ./tests/prime.spec.js"
+    "test-say-it": "mocha ./tests/sayit.spec.js",
+    "test-babel": "mocha --require babel-core/register ./tests/sayit.spec.js"
   },
   "keywords": [
     "books",
     "algorithms",
-    "teaching"
+    "teaching",
+    "testing",
+    "javascript",
+    "coffeescript"
   ],
   "author": "Painatalman, algorithms from Angus Croll",
   "license": "ISC",
