@@ -17,7 +17,7 @@ var functions = [
   }
 ];
 
-chai.should(); // should style assertions
+var expect = chai.expect; // expect style assertions
 
 describe('Say it. Chainable and ends when with nothing', function () {
 
@@ -33,22 +33,32 @@ describe('Say it. Chainable and ends when with nothing', function () {
       delete require.cache[require.resolve(theFunction.methodPath)];
       // then require it again, it will be created anew, cached object must not be reused
       method = require(theFunction.methodPath);
-    })
+    });
+
+    console.log("----------"); // just a separator
 
     it(name + ' should be empty of called with nothing', function () {
-      method().should.be.empty;
+      expect(method()).to.be.empty;
     });
 
     it(name + ' should be a word when called once with a word and then with nothing', function () {
-      method('Hello')().should.equal('Hello');
+      expect(method('Hello')()).to.equal('Hello');
     });
 
     it(name + ' should process some chained words into one', function () {
-      method('Hello')('and')('goodbye')().should.equal('Hello and goodbye');
+      expect(method('Hello')('and')('goodbye')()).to.equal('Hello and goodbye');
     });
 
     it(name + ' should process some chained words into one, ending with an empty string', function () {
-      method('Hello')('and')('goodbye')('').should.equal('Hello and goodbye');
+      expect(method('Hello')('and')('goodbye')('')).to.equal('Hello and goodbye');
+    });
+
+    it(name + ' should should work with anything that is "summable", like numbers', function () {
+      expect(method('Hello')('number')(6)('')).to.equal('Hello number 6');
+    });
+
+    it(name + ' should not be callable after a call with no parameter or empty string', function () {
+      expect(function () {method('Goodbye')('')("and hello")}).to.throw(TypeError);
     });
   });
 });
