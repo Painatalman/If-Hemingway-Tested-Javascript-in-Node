@@ -4,8 +4,10 @@ var factorial = (function() {
 
   return function reckoning(quantity) {
     if (isNaN(quantity)) {
-      console.log('I have not the pleasure of understanding you.');
-      return;
+      // NOTE: original duo of code lines
+      // console.log('I have not the pleasure of understanding you.');
+      // return;
+      throw new Error('I have not the pleasure of understanding you.');
     }
 
     // It is a truth universally acknowledged that two values can only be
