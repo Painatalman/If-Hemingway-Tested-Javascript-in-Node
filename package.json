@@ -5,10 +5,13 @@
   "repository": "https://github.com/Painatalman/If-Hemingway-Tested-Javascript-in-Node",
   "main": "index.js",
   "scripts": {
-    "test-factorials": "mocha --compilers coffee:coffee-script/register ./tests/factorial.spec.js",
-    "test-primes": "mocha ./tests/prime.spec.js",
+    "test-factorials": "mocha --runner=nyan --compilers coffee:coffee-script/register ./tests/factorial.spec.js",
+    "test-primes": "mocha --runner=nyan ./tests/prime.spec.js",
     "test-say-it": "mocha ./tests/sayit.spec.js",
-    "test-babel": "mocha --require babel-core/register ./tests/sayit.spec.js"
+    "test-fibonacci": "mocha --runner=nyan ./tests/fibonacci.spec.js",
+    "test-happy": "mocha --runner=nyan ./tests/happy.spec.js",
+    "report-say-it ": "istanbul cover node_modules/mocha/bin/_mocha ./tests/sayit.spec.js",
+    "UNUSED-test-babel": "mocha --require babel-core/register ./tests/sayit.spec.js"
   },
   "keywords": [
     "books",
@@ -27,6 +30,8 @@
     "coffee-script": "^1.11.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.1.0",
+    "mocha-check": "^1.0.0",
+    "mocha-testcheck": "^0.1.2",
     "node-notify": "^1.0.0"
   }
 }
