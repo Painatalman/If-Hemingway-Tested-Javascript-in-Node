@@ -2,10 +2,26 @@
 var chai = require('chai'),
   path = require('path');
 
+require('mocha-testcheck').install();
+
 var functions = [
   {
     name: 'plath',
     methodPath:'../say-it/plath.js' // here, we will do things differently, because we must reset the function always to reset all the words after each test
+  },
+  {
+    name: 'rowling',
+    methodPath:'../say-it/rowling.js' // here, we will do things differently, because we must reset the function always to reset all the words after each test
+  },
+  {
+    name: 'roy',
+    methodPath:'../say-it/roy.js', // here, we will do things differently, because we must reset the function always to reset all the words after each test
+    notes: 'Roy returns an object that has the toString() method.'
+  },
+  {
+    name: 'kafka-v2',
+    methodPath:'../say-it/kafka-solved.js', // here, we will do things differently, because we must reset the function always to reset all the words after each test
+    notes: 'His original method does not solve a thing'
   },
   {
     name: 'calvino',
@@ -35,7 +51,9 @@ describe('Say it. Chainable and ends when with nothing', function () {
       method = require(theFunction.methodPath);
     });
 
-    console.log("----------"); // just a separator
+    it('should exist', function() {
+        expect(method).to.not.be.undefined;
+    });
 
     it(name + ' should be empty of called with nothing', function () {
       expect(method()).to.be.empty;
